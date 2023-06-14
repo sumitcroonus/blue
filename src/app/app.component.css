@@ -1,0 +1,60 @@
+html{
+    height: 100%;
+}
+body{
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+}
+.side{
+height: 100vh;
+
+}
+.logo{
+   margin-top:30px;
+   width: 50%;
+   max-height: 60%;
+}
+.sum{
+    background-color: rgb(241, 245, 249);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    min-height: 100%;
+    padding-bottom: 20px;
+}
+
+.category{
+    font-size: 16px;
+    list-style: none;
+    text-align: center;
+    align-content: center;
+    margin-top: 10px;
+    color: white;
+    padding: 10px 0px;
+    height: 50px;
+}
+.category p{
+    padding: 5px;
+}
+.category img{
+    padding:0px 15px;
+}
+.footer{
+    position: absolute;
+    bottom: 0px;
+}
+.active ,.active img , .active p{
+    background-color: rgb(151,149,205);
+   
+}
+.active{
+     border: 1px solid white;
+    border-radius: 5px;
+    width: 100%;
+}
+.menu{
+    margin-top: 30px;
+    align-items: center;
+}
+
+

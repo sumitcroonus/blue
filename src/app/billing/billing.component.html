@@ -1,0 +1,143 @@
+<div class="row search-box d-flex">
+    <div class="col-md-5 p-2 ">
+        <div class="inp">
+            <button class="inp-btn">
+                <mat-icon class="material-symbols-outlined">
+                    search
+                </mat-icon>
+            </button>
+            <input class="" type="text" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-4 col-6 p-2 app-btn">
+        <button (click)="appointment()">Make an Appointment</button>
+    </div>
+    <div class="col-md-2 col-4 p-2 app-btn add-btn">
+        <button (click)="addPatient()">Add Patient</button>
+    </div>
+    <div class="col-md-1 col-2 p-2  app-btn not-btn">
+        <button (click)="notification()"><img src="../../assets/bell.png" alt=""></button>
+    </div>
+</div>
+<div class="d-flex justify-content-between title">
+    <h1>Billing Overview</h1>
+    <div class="date ">
+        <button><</button>
+        <span>February 2021</span>
+        <button>></button>
+    </div>
+</div>
+<div class="row">
+    <div  class="col-md-4 col-sm-8 col-xl-3 col-12">
+        <div *ngFor="let patient of patientArray">
+            <div (click)="getBill(patient.id)"  class="list d-flex">
+                <div>
+                    <img src="https://static.vecteezy.com/system/resources/previews/011/675/374/original/man-avatar-image-for-profile-png.png" alt="">
+                </div>
+                <div class="detail">
+                    <h3>{{patient.name}}</h3>
+                    <h3>{{patient.age}}</h3>
+                    <div class="d-flex ath justify-content-between">
+                        <h4>Bill No </h4>
+                        <h4>{{patient.bill}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-8 col-xl-9 col-12">
+        <div [hidden]="hide" class="bill">
+            <div class="outline">
+                <div class="d-flex justify-content-between print">
+                    <h3>Billing Details</h3>
+                    <button>Print Bill</button>
+                </div>
+                <div *ngFor="let patient of patientById" class="heading overflow-auto">
+                    <div class="row">
+                        <div class="col-3 back">
+                            <h3 style="color: gray;">Name</h3>
+                            <h3>{{patient.name}}</h3>
+                        </div>
+                        <div class="col-2 back">
+                            <h3 style="color: gray;">age</h3>
+                            <h3>{{patient.age}}</h3>
+                        </div>
+                        <div class="col-2 back">
+                            <h3 style="color: gray;">Bill no</h3>
+                            <h3>{{patient.bill}}</h3>
+                        </div>
+                        <div class="col-3 back">
+                            <h3 style="color: gray;">date</h3>
+                            <h3 >{{patient.date}}</h3>
+                        </div>
+                        <div class="col-2 back">
+                            <h3 style="color: gray;">receipt</h3>
+                            <h3 class="text-break">{{patient.receipt}}</h3>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-2 ser-title">
+                            <h2>Sr.no</h2>
+                        </div>
+                        <div class="col-4 ser-title">
+                            <h2>Service Name</h2>
+                        </div>
+                        <div class="col-2 ser-title">
+                            <h2>Price</h2>
+                        </div>
+                        <div class="col-2 ser-title">
+                            <h2>Quantity</h2>
+                        </div>
+                        <div class="col-2 ser-title">
+                            <h2>Amount</h2>
+                        </div> 
+                    </div>
+                    <mat-divider style="color:  rgb(49, 46, 129);"></mat-divider>
+                    <div *ngFor="let service of patientByIdService" class="row ser-detail">
+                        <div class="col-2 ">
+                            <h3>{{service.id}}</h3>
+                        </div>
+                        <div class="col-4">
+                            <div>
+                                <h3>{{service.name}}</h3>
+                            </div>
+                        </div>
+                        <div class="col-2 ">
+                            <h3>{{service.price}}</h3>
+                        </div>
+                        <div class="col-2 ">
+                            <h3>{{service.quantity}}</h3>
+                        </div>
+                        <div class="col-2 ">
+                            <h3>{{service.price*service.quantity}}</h3>
+                        </div> 
+                    </div>
+                    <div class="d-flex justify-content-between bill-footer">
+                        <div style="text-align: start;" >
+                            <h3>Mobile Number</h3>
+                            <h3>Tax</h3>
+                            <h3>Discount</h3>
+                        </div>
+                        <div style="text-align: end;">
+                            <h3>{{patient.receipt}}</h3>
+                            <h3>200</h3>
+                            <h3>500</h3>
+                        </div>
+                    </div>
+                    <mat-divider style="color:  rgb(49, 46, 129);"></mat-divider>
+                    <div class="d-flex justify-content-between total">
+                        <div>
+                            <h3 style="font-weight: 500;">Total</h3>
+                        </div>
+                        <div>
+                            <h3 style="font-weight: 500;">7028080456</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+    
